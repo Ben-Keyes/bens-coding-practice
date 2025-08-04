@@ -17,3 +17,7 @@ Run all tests with:
 ```bash
 pytest
 ```
+
+## Code Style & Testing Notes
+- Methods are implemented as instance methods to follow common coding challenge conventions and facilitate testing with pytest fixtures, even when they could be refactored as static methods due to lack of instance state.
+- Tests use pytest fixtures and standard conventions to showcase testing practices.
