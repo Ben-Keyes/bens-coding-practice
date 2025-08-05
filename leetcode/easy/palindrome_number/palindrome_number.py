@@ -1,5 +1,8 @@
 class Solution:
-    def isPalindrome(self, x: int) -> bool:
+    def is_palindrome(self, x: int) -> bool:
+        """
+        Given an integer x, return true if x is a palindrome, and false otherwise.
+        """
         if x < 0:
             return False
         str_x = str(x)
@@ -10,7 +13,7 @@ class Solution:
 
 
 ## Optimised solution with splicing:
-# def isPalindrome(self, x: int) -> bool:
+# def is_palindrome(self, x: int) -> bool:
 #     if x < 0:
 #         return False
 #     str_x = str(x)

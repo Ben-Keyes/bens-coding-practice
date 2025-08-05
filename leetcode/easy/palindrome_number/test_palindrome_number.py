@@ -9,7 +9,7 @@ def solution():
 
 class TestPalindrome:
     def test_cases(self, solution):
-        assert solution.isPalindrome(121)
-        assert not solution.isPalindrome(122)
-        assert not solution.isPalindrome(-121)
-        assert solution.isPalindrome(1)
+        assert solution.is_palindrome(121)
+        assert not solution.is_palindrome(122)
+        assert not solution.is_palindrome(-121)
+        assert solution.is_palindrome(1)
