@@ -23,6 +23,6 @@ repos:
     hooks:
       - id: pytest
         name: Run pytest
-        entry: pytest
+        entry: pytest codingbat/ leetcode/
         language: system
         types: [python]
