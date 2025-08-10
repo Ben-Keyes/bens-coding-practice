@@ -59,7 +59,7 @@ jobs:
         run: pytest --cov=codingbat --cov=leetcode --cov-report=xml
 
       - name: Upload coverage XML for next step
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-xml
           path: coverage.xml
