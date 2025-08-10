@@ -1,12 +1,12 @@
-name: CI
+name: Full CI Workflow
 # Continuous Integration Workflow, runs same checks as the pre-commit hook
 on:
   push:
   pull_request:
 
 jobs:
-  lint-and-test:
-    name: Lint and Test
+  full-checks:
+    name: Full Checks and Test
     runs-on: ubuntu-latest
 
     strategy:
