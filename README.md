@@ -2,7 +2,7 @@
 
 ![Build Status](https://github.com/Ben-Keyes/bens-coding-practice/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
-[![codecov](https://codecov.io/gh/Ben-Keyes/bens-coding-practice/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/Ben-Keyes/bens-coding-practice)
+[![codecov](https://codecov.io/gh/Ben-Keyes/bens-coding-practice/graph/badge.svg?token=LUAWQD1TNJ)](https://codecov.io/gh/Ben-Keyes/bens-coding-practice)
 
 Hiya! Welcome to **my coding practice repository**.  
 Here, I tackle coding challenges like [LeetCode](https://leetcode.com) and [CodingBat](https://codingbat.com), plus other fun practice projects.
