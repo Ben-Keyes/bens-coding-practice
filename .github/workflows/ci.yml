@@ -1,12 +1,11 @@
 name: Full CI Workflow
-# Continuous Integration Workflow, runs same checks as the pre-commit hook
 on:
   push:
   pull_request:
 
 jobs:
-  full-checks:
-    name: Full Checks and Test
+  lint:
+    name: Lint Code
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,10 +21,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+      - name: Install linting tools
         run: |
           python -m pip install --upgrade pip
-          pip install black ruff pytest
+          pip install black ruff
 
       - name: Run Black (check only)
         run: black --check .
@@ -33,5 +32,51 @@ jobs:
       - name: Run Ruff
         run: ruff check .
 
-      - name: Run Pytest
-        run: pytest codingbat/ leetcode/
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint
+
+    strategy:
+      matrix:
+        python-version: [3.11]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov
+
+      - name: Run Pytest with coverage
+        run: pytest --cov=codingbat --cov=leetcode --cov-report=xml
+
+      - name: Upload coverage XML for next step
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-xml
+          path: coverage.xml
+
+  coverage-upload:
+    name: Upload Coverage to Codecov
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Download coverage XML artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-xml
+          path: .
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage.xml
