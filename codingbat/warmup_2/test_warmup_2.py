@@ -35,3 +35,10 @@ class TestWarmup2:
         assert solution.string_splosion("ab") == "aab"
         assert solution.string_splosion("x") == "x"
         assert solution.string_splosion("") == ""
+
+    def test_last2(self, solution):
+        assert solution.last2("hixxxhi") == 1
+        assert solution.last2("axxxaaxx") == 2
+        assert solution.last2("abcdef") == 0
+        assert solution.last2("hi") == 0
+        assert solution.last2("h") == 0

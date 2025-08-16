@@ -80,3 +80,29 @@ class Solution:
     #     for i in range(len(s) + 1):
     #         result = result + s[:i]
     #     return result
+
+    def last2(self, s: str) -> int:
+        """
+        Count the number of times a substring of length 2 appears in the string
+        and also matches the last 2 characters of the string.
+
+        This does not count the substring at the very end of the string.
+
+        Args:
+            s (str): The input string.
+
+        Returns:
+            int: The count of matching substrings.
+
+        Examples:
+            >>> self.last2("hixxxhi")
+            1
+            >>> self.last2("hellohello")
+            1
+            >>> self.last2("hi")
+            0
+        """
+        if len(s) < 2:
+            return 0
+        matches = (s[i : i + 2] == s[-2:] for i in range(len(s) - 2))
+        return sum(matches)
