@@ -106,3 +106,35 @@ class Solution:
             return 0
         matches = (s[i : i + 2] == s[-2:] for i in range(len(s) - 2))
         return sum(matches)
+
+    def array_count9(self, nums: list[int]) -> int:
+        """
+        Count the number of 9's in a list of integers.
+
+        Args:
+            nums (list[int]): The input list of integers.
+
+        Returns:
+            int: The count of 9's in the list.
+
+        Notes:
+            You could also solve this using ``nums.count(9)``,
+            but the generator version works on any iterable,
+            not just lists.
+        """
+        return sum(x == 9 for x in nums)
+
+    def array_front9(self, nums: list[int]) -> bool:
+        """
+        Return True if there is a 9 in the first 4 elements of the list.
+
+        Args:
+            nums (list[int]): The input list of integers.
+
+        Returns:
+            bool: True if 9 is present in the first 4 elements, False otherwise.
+        """
+        for x in nums[:4]:
+            if x == 9:
+                return True
+        return False
