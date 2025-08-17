@@ -56,7 +56,7 @@ jobs:
           pip install pytest pytest-cov
 
       - name: Run Pytest with coverage
-        run: pytest --cov=codingbat --cov=leetcode --cov-report=xml:coverage.xml
+        run: pytest --cov=codingbat --cov=leetcode --cov-report=xml:coverage.xml --cov-branch --cov-context=test
 
       - name: Upload coverage XML for next step
         uses: actions/upload-artifact@v4
