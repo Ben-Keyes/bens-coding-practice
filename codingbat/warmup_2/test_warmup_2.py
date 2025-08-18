@@ -42,3 +42,17 @@ class TestWarmup2:
         assert solution.last2("abcdef") == 0
         assert solution.last2("hi") == 0
         assert solution.last2("h") == 0
+
+    def test_array_count9(self, solution):
+        assert solution.array_count9([1, 9, 9, 3, 9]) == 3
+        assert solution.array_count9([1, 2, 3, 4, 5]) == 0
+        assert solution.array_count9([9, 9, 9, 9]) == 4
+        assert solution.array_count9([]) == 0
+        assert solution.array_count9([9]) == 1
+
+    def test_array_front9(self, solution):
+        assert solution.array_front9([1, 2, 9, 3, 4]) is True
+        assert solution.array_front9([1, 2, 3, 4, 9]) is False
+        assert solution.array_front9([9, 1, 2, 3]) is True
+        assert solution.array_front9([1, 2, 3]) is False
+        assert solution.array_front9([]) is False
