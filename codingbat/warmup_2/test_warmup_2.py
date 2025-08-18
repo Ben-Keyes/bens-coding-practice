@@ -56,3 +56,17 @@ class TestWarmup2:
         assert solution.array_front9([9, 1, 2, 3]) is True
         assert solution.array_front9([1, 2, 3]) is False
         assert solution.array_front9([]) is False
+
+    def test_array123(self, solution):
+        assert solution.array123([1, 2, 3]) is True
+        assert solution.array123([0, 1, 2, 3, 4]) is True
+        assert solution.array123([1, 2]) is False
+        assert solution.array123([1, 2, 4, 3]) is False
+        assert solution.array123([]) is False
+
+    def test_string_match(self, solution):
+        assert solution.string_match("xxcaazz", "xxbaaz") == 3
+        assert solution.string_match("abc", "abc") == 2
+        assert solution.string_match("abc", "xyz") == 0
+        assert solution.string_match("", "") == 0
+        assert solution.string_match("ab", "abcd") == 1

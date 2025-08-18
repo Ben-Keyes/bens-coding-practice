@@ -133,8 +133,62 @@ class Solution:
 
         Returns:
             bool: True if 9 is present in the first 4 elements, False otherwise.
+
+        Notes:
+            A cleaner answer would be:
+            ``return any(x == 9 for x in nums[:4])``.
+            However, CodingBat doesn't support the 'any' function.
         """
         for x in nums[:4]:
             if x == 9:
                 return True
         return False
+
+    def array123(self, nums: list[int]) -> bool:
+        """
+        Return True if there is a 1,2,3 sequence in the list.
+
+        Args:
+            nums (list[int]): The input list of integers.
+
+        Returns:
+            bool: True if the sequence "1,2,3" is present in the list, False otherwise.
+
+        Notes:
+            Again, a cleaner answer would be:
+            ``return any(nums[i:i+3] == [1,2,3] for i in range(len(nums) - 2))``.
+            However, CodingBat doesn't support the 'any' function.
+
+            Also, unlike my solution, directly comparing integers may be slightly more efficient...
+            e.g. ``if nums[i] == 1 and nums[i+1] == 2 and nums[i+2] == 3:``
+            Not a noticeable impact for the exercise, but in longer lists would be preferable.
+        """
+        for i in range(len(nums) - 2):
+            if nums[i : i + 3] == [1, 2, 3]:
+                return True
+        return False
+
+    def string_match(self, a: str, b: str) -> int:
+        """
+        Counts the number of positions where the two strings
+        contain the same length-2 substring.
+
+        A length-2 substring is a consecutive sequence of 2 characters in a string.
+        For example, in "hello", the length-2 substrings are "he", "el", "ll", "lo".
+
+        The function compares substrings at the same positions in both strings
+        and counts how many are equal.
+
+        Args:
+            a (str): The first input string.
+            b (str): The second input string.
+
+        Returns:
+            int: The number of positions where a and b have the same length-2 substring.
+
+        Example:
+            string_match("xxcaazz", "xxbaaz") returns 3
+            because the matching substrings are "xx", "aa", and "az".
+        """
+        length = min(len(a), len(b))
+        return sum(a[i : i + 2] == b[i : i + 2] for i in range(length - 1))
