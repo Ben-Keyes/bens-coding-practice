@@ -56,3 +56,31 @@ class TestString1:
         assert solution.first_half("Hi") == "H"
         assert solution.first_half("AB") == "A"
         assert solution.first_half("PythonTree") == "Pytho"
+
+    def test_without_end(self, solution):
+        assert solution.without_end("Hello") == "ell"
+        assert solution.without_end("ab") == ""
+        assert solution.without_end("python") == "ytho"
+        assert solution.without_end("coding") == "odin"
+        assert solution.without_end("12345") == "234"
+
+    def test_combo_string(self, solution):
+        assert solution.combo_string("Hello", "hi") == "hiHellohi"
+        assert solution.combo_string("hi", "Hello") == "hiHellohi"
+        assert solution.combo_string("a", "xyz") == "axyza"
+        assert solution.combo_string("", "abc") == "abc"
+        assert solution.combo_string("kitten", "dog") == "dogkittendog"
+
+    def test_non_start(self, solution):
+        assert solution.non_start("Hello", "There") == "ellohere"
+        assert solution.non_start("java", "code") == "avaode"
+        assert solution.non_start("shotl", "java") == "hotlava"
+        assert solution.non_start("a", "x") == ""
+        assert solution.non_start("ab", "xy") == "by"
+
+    def test_left2(self, solution):
+        assert solution.left2("Hello") == "lloHe"
+        assert solution.left2("java") == "vaja"
+        assert solution.left2("Hi") == "Hi"
+        assert solution.left2("Code") == "deCo"
+        assert solution.left2("Python") == "thonPy"
