@@ -93,14 +93,6 @@ class Solution:
 
         Returns:
             int: The count of matching substrings.
-
-        Examples:
-            >>> self.last2("hixxxhi")
-            1
-            >>> self.last2("hellohello")
-            1
-            >>> self.last2("hi")
-            0
         """
         if len(s) < 2:
             return 0
