@@ -105,3 +105,66 @@ class Solution:
             str: The first half of the string.
         """
         return s[: len(s) // 2]
+
+    def without_end(self, s: str) -> str:
+        """
+        Return a string with the first and last characters removed.
+
+        The input string must have a length of at least 2.
+        For example, "Hello" yields "ell".
+
+        Args:
+            s (str): The input string (length >= 2).
+
+        Returns:
+            str: The string without its first and last characters.
+        """
+        return s[1:-1]
+
+    def combo_string(self, a: str, b: str) -> str:
+        """
+        Return a string of the form short+long+short, with the shorter string on the
+        outside and the longer string on the inside.
+
+        If one string is shorter than the other, the shorter one goes on both sides
+        of the longer string. The input strings will not be the same length, but
+        either one may be empty.
+
+        Args:
+            a (str): The first input string.
+            b (str): The second input string.
+
+        Returns:
+            str: A new string in the form short+long+short.
+        """
+        short, long = (a, b) if len(a) < len(b) else (b, a)
+        return short + long + short
+
+    def non_start(self, a: str, b: str) -> str:
+        """Concatenate two strings without their first characters.
+
+        This function removes the first character from each input string
+        and returns the concatenation of the resulting substrings.
+
+        Args:
+            a (str): The first input string (at least length 1).
+            b (str): The second input string (at least length 1).
+
+        Returns:
+            str: The concatenated string without the first character of each input.
+        """
+        return a[1:] + b[1:]
+
+    def left2(self, s: str) -> str:
+        """Return a string with the first 2 characters moved to the end.
+
+        This performs a "left rotation" of 2 characters. The string length
+        will be at least 2.
+
+        Args:
+            s (str): The input string (length >= 2).
+
+        Returns:
+            str: The rotated string.
+        """
+        return s[2:] + s[:2]
