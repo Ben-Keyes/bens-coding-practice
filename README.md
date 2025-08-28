@@ -28,3 +28,4 @@ pytest
 ## Code Style & Testing Notes
 - Methods are implemented as instance methods to follow common coding challenge conventions and to facilitate testing with pytest fixtures, even when they could be refactored as static methods because they don't use instance state.
 - Tests use pytest fixtures and standard conventions to demonstrate good testing practices.
+- Code comments follow the google-style docstring format.
