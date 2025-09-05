@@ -84,3 +84,93 @@ class Solution:
         elif speed <= 80 + allowance:
             return 1
         return 2
+
+    def sorta_sum(self, a: int, b: int) -> int:
+        """
+        Return the sum of two integers, except if the sum is in the range 10..19 inclusive,
+        in which case return 20.
+
+        Args:
+            a (int): The first integer.
+            b (int): The second integer.
+
+        Returns:
+            int: The sum of a and b, or 20 if the sum is in the range 10..19.
+        """
+        return 20 if 10 <= a + b <= 19 else a + b
+
+    def alarm_clock(self, day: int, vacation: bool) -> str:
+        """
+        Determine the alarm time based on the day of the week and vacation status.
+
+        Rules:
+            - Weekdays (Mon–Fri):
+                - Normal: "7:00"
+                - Vacation: "10:00"
+            - Weekends (Sat, Sun):
+                - Normal: "10:00"
+                - Vacation: "off"
+
+        Args:
+            day (int): Day of the week (0=Sun, 1=Mon, ..., 6=Sat).
+            vacation (bool): True if on vacation, False otherwise.
+
+        Returns:
+            str: The alarm time as "7:00", "10:00", or "off".
+        """
+        if vacation:
+            return "off" if day in {0, 6} else "10:00"
+        return "10:00" if day in {0, 6} else "7:00"
+
+    def love6(self, a: int, b: int) -> bool:
+        """
+        Determine whether two integers are related to the number 6.
+
+        Rules:
+            - Return True if either number is 6.
+            - Return True if their sum is 6.
+            - Return True if their absolute difference is 6.
+
+        Args:
+            a (int): The first integer.
+            b (int): The second integer.
+
+        Returns:
+            bool: True if the numbers meet the conditions, False otherwise.
+        """
+        return a == 6 or b == 6 or a + b == 6 or abs(a - b) == 6
+
+    def in1to10(self, n: int, outside_mode: bool) -> bool:
+        """
+        Determine whether a number falls within a range or outside based on mode.
+
+        Rules:
+            - Normal mode: return True if 1 <= n <= 10.
+            - Outside mode: return True if n <= 1 or n >= 10.
+
+        Args:
+            n (int): The number to check.
+            outside_mode (bool): True if checking outside the range, False otherwise.
+
+        Returns:
+            bool: True if the condition is satisfied, False otherwise.
+        """
+        if outside_mode:
+            return n <= 1 or n >= 10
+        return 1 <= n <= 10
+
+    def near_ten(self, num: int) -> bool:
+        """
+        Determine whether a number is within 2 of a multiple of 10.
+
+        Rules:
+            - Return True if num % 10 is 0, 1, 2, 8, or 9.
+            - Return False otherwise.
+
+        Args:
+            num (int): A non-negative integer.
+
+        Returns:
+            bool: True if num is within 2 of a multiple of 10, False otherwise.
+        """
+        return num % 10 <= 2 or num % 10 >= 8
