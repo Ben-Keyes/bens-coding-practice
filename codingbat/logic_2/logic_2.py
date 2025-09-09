@@ -132,3 +132,22 @@ class Solution:
             int: num rounded to the nearest multiple of 10.
         """
         return num + (10 - num % 10 if num % 10 >= 5 else -(num % 10))
+
+    def close_far(self, a: int, b: int, c: int) -> bool:
+        """
+        Determine if one number is "close" to a and the other is "far".
+
+        A number is "close" if it differs from a by at most 1.
+        A number is "far" if it differs from both a and the other number by 2 or more.
+
+        Args:
+            a (int): The reference number.
+            b (int): The first number to compare.
+            c (int): The second number to compare.
+
+        Returns:
+            bool: True if one of b or c is close and the other is far, False otherwise.
+        """
+        return (abs(a - b) <= 1 and abs(a - c) >= 2 and abs(b - c) >= 2) or (
+            abs(a - c) <= 1 and abs(a - b) >= 2 and abs(b - c) >= 2
+        )

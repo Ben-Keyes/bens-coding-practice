@@ -42,3 +42,10 @@ class TestLogic2:
         assert solution.round_sum(6, 4, 4) == 10
         assert solution.round_sum(15, 25, 35) == 90
         assert solution.round_sum(11, 21, 29) == 60
+
+    def test_close_far(self, solution):
+        assert solution.close_far(1, 2, 10) is True
+        assert solution.close_far(1, 2, 3) is False
+        assert solution.close_far(4, 5, 9) is True
+        assert solution.close_far(10, 9, 8) is False
+        assert solution.close_far(5, 6, 4) is False
