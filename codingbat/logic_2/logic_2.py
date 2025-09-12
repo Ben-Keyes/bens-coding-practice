@@ -132,3 +132,22 @@ class Solution:
             int: num rounded to the nearest multiple of 10.
         """
         return num + (10 - num % 10 if num % 10 >= 5 else -(num % 10))
+
+    def make_chocolate(self, small: int, big: int, goal: int) -> int:
+        """
+        Determine the number of small bars needed to reach the goal weight.
+
+        Always use as many big bars (5 kilos each) as possible before using small bars (1 kilo each).
+        If it is not possible to meet the goal with the given bars, return -1.
+
+        Args:
+            small (int): The number of available small bars (1 kilo each).
+            big (int): The number of available big bars (5 kilos each).
+            goal (int): The target weight in kilos.
+
+        Returns:
+            int: The number of small bars needed, or -1 if the goal cannot be met.
+        """
+        max_big = min(goal // 5, big)
+        remainder = goal - max_big * 5
+        return remainder if remainder <= small else -1

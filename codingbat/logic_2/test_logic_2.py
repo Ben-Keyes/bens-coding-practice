@@ -42,3 +42,10 @@ class TestLogic2:
         assert solution.round_sum(6, 4, 4) == 10
         assert solution.round_sum(15, 25, 35) == 90
         assert solution.round_sum(11, 21, 29) == 60
+
+    def test_make_chocolate(self, solution):
+        assert solution.make_chocolate(4, 1, 9) == 4
+        assert solution.make_chocolate(4, 1, 10) == -1
+        assert solution.make_chocolate(4, 1, 7) == 2
+        assert solution.make_chocolate(6, 2, 7) == 2
+        assert solution.make_chocolate(3, 2, 10) == 0
